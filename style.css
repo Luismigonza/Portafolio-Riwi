@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1e1f29, #2b2d42);
+    background: linear-gradient(135deg, #0a0a0a, #10222e);
     color: #f8f9fa;
     line-height: 1.6;
     overflow-x: hidden;
@@ -15,75 +15,62 @@ body {
 
 a {
     text-decoration: none;
-    color: #00bcd4;
+    color: #d4af37; /* Dorado */
     transition: all 0.3s ease;
 }
 
 a:hover {
-    color: #00e5ff;
+    color: #00bcd4; /* Azul brillante (resalta sin romper la estética) */
 }
 
 /* ----------- ANIMACIONES ----------- */
 @keyframes fadeDown {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Aplicar las animaciones */
-.fade-down {
-    animation: fadeDown 1s ease forwards;
+/* Animación de brillo dorado */
+@keyframes goldShine {
+    0% { background-position: -200%; }
+    100% { background-position: 200%; }
 }
-.fade-in {
-    animation: fadeIn 1.2s ease forwards;
-}
-.fade-up {
-    animation: fadeUp 1.2s ease forwards;
-}
+
+.fade-down { animation: fadeDown 1s ease forwards; }
+.fade-in { animation: fadeIn 1.2s ease forwards; }
+.fade-up { animation: fadeUp 1.2s ease forwards; }
 
 /* ----------- ENCABEZADO ----------- */
 header {
     text-align: center;
     padding: 60px 20px;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    background: linear-gradient(135deg, #0d1b2a, #1b263b);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
 }
 
 header h1 {
     font-size: 2.8em;
-    color: #00e5ff;
-    margin-bottom: 10px;
+    background: linear-gradient(90deg, #b8860b, #d4af37, #f8e473, #d4af37, #b8860b);
+    background-size: 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: goldShine 6s linear infinite;
 }
 
 header h2 {
     font-weight: 300;
     font-size: 1.5em;
-    color: #dcdcdc;
+    color: #b0c4de;
 }
 
 /* ----------- SECCIÓN SOBRE MÍ ----------- */
@@ -105,7 +92,14 @@ header h2 {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    border: 3px solid #d4af37;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.perfil img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 188, 212, 0.5);
 }
 
 .descripcion {
@@ -114,7 +108,7 @@ header h2 {
 
 .descripcion h2 {
     font-size: 2em;
-    color: #00e5ff;
+    color: #d4af37;
     margin-bottom: 15px;
 }
 
@@ -124,14 +118,15 @@ header h2 {
 }
 
 .redes a {
-    color: #00e5ff;
+    color: #d4af37;
     font-size: 1.8em;
     margin-right: 15px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .redes a:hover {
     transform: scale(1.2);
+    color: #00bcd4;
 }
 
 /* ----------- SECCIONES DE PROYECTOS ----------- */
@@ -141,9 +136,14 @@ section {
 
 section h2 {
     font-size: 2em;
-    color: #00e5ff;
+    background: linear-gradient(90deg, #b8860b, #d4af37, #f8e473, #d4af37, #b8860b);
+    background-size: 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: goldShine 6s linear infinite;
     margin-bottom: 30px;
-    border-bottom: 2px solid #00e5ff;
+    border-bottom: 2px solid #00bcd4;
     display: inline-block;
     padding-bottom: 5px;
 }
@@ -176,8 +176,8 @@ section h2 {
 
 .tarjeta:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+    background: rgba(212, 175, 55, 0.08);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
 }
 
 .tarjeta h3 {
@@ -187,6 +187,11 @@ section h2 {
 
 .tarjeta a {
     font-weight: 600;
+    color: #d4af37;
+}
+
+.tarjeta a:hover {
+    color: #00bcd4;
 }
 
 /* ----------- FOOTER ----------- */
@@ -194,9 +199,10 @@ footer {
     text-align: center;
     padding: 20px;
     background: rgba(255, 255, 255, 0.05);
-    color: #aaa;
+    color: #d4af37;
     font-size: 0.9em;
     margin-top: 40px;
+    border-top: 1px solid #00bcd4;
 }
 
 /* ----------- RESPONSIVE ----------- */
