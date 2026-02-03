@@ -15,12 +15,12 @@ body {
 
 a {
     text-decoration: none;
-    color: #d4af37; /* Dorado */
+    color: #d4af37; 
     transition: all 0.3s ease;
 }
 
 a:hover {
-    color: #00bcd4; /* Azul brillante (resalta sin romper la estética) */
+    color: #00bcd4; 
 }
 
 /* ----------- ANIMACIONES ----------- */
